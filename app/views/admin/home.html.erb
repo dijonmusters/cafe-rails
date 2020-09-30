@@ -1,1 +1,3 @@
-<h1>Welcome to the Cafe</h1>
+<%= render partial: 'teams', locals: { teams: @teams } %>
+<%= render partial: 'users', locals: { users: @users } %>
+<%= render partial: 'matches', locals: { most_recent_successful_matches: @most_recent_successful_matches, most_recent_unsuccessful_matches: @most_recent_unsuccessful_matches } %>

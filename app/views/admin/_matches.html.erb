@@ -1,0 +1,11 @@
+<h2 class="text-gray-800 font-medium text-3xl p-4 border-b border-t">Recent matches (<%= time_ago_in_words(most_recent_successful_matches.first.created_at) %>)</h2>
+<h3 class="text-gray-800 font-normal text-2xl px-8 pt-4">Successful</h2>
+<% most_recent_successful_matches.each do |match| %>
+  <p class="px-12 pt-1"><%= match.user.username %> <-> <%= match.other_user.username %></p>
+  <p class="px-16 pb-1"><%= match.message %></p>
+<% end %>
+<h3 class="text-gray-800 font-normal text-2xl px-8 pt-4">Unsuccessful</h2>
+<% most_recent_unsuccessful_matches.each do |match| %>
+  <p class="px-12 pt-1"><%= match.user.username %> (<%= match.user.unsuccessful_matches.count %> time<%= match.user.unsuccessful_matches.count > 1 ? 's' : '' %>)</p>
+  <p class="px-16 pb-1"><%= match.message %></p>
+<% end %>
